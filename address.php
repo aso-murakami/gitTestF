@@ -1,15 +1,26 @@
 <?php
 
-$url = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=8120016&collback=test";
-$json = file_get_contents($url);
+if(isset($_POST['zip'])){
+    $zipcode = $_POST['zipcode'];
+    $url = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=".$zipcode;
+    $json = file_get_contents($url);
 
-//true⇒連想配列／false（なし）⇒オブジェクト型
-$data = json_decode($json,true);
+    $data = json_decode($json,true);
+    $address1 = $data['results'][0]['address1'];
+    $address2 = $data['results'][0]['address2'];
+    $address3 = $data['results'][0]['address3'];
+}
 
-$address1 = $data['results'][0]['address1'];
-$address2 = $data['results'][0]['address2'];
-$address3 = $data['results'][0]['address3'];
-
+if(isset($_POST['send'])){
+    echo '<hr>';
+    echo '<p>送信データ</p>';
+    echo '<p>',$_POST['zipcode'],'</p>';
+    echo '<p>',$_POST['address1'],'</p>';
+    echo '<p>',$_POST['address2'],'</p>';
+    echo '<p>',$_POST['address3'],'</p>';
+    echo '<p>',$_POST['address_detail'],'</p>';
+    echo '<hr>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -23,23 +34,18 @@ $address3 = $data['results'][0]['address3'];
 <form action="" method="POST">
 <dl>
     <dt>郵便番号</dt>
-    <dd><input type="text" name="address" value="">
-        <button onclick="address()">住所検索</button></dd>
+    <dd><input type="text" name="zipcode" value="<?=$zipcode ?>">
+        <button type="submit" name="zip">住所検索</button></dd>
     <dt>住所1</dt>
-    <dd><input type="text" value="<?=$address1 ?>"></dd>
+    <dd><input type="text" name="address1" value="<?=$address1 ?>"></dd>
     <dt>住所2</dt>
-    <dd><input type="text" value="<?=$address2 ?>"></dd>
+    <dd><input type="text" name="address2" value="<?=$address2 ?>"></dd>
     <dt>住所3</dt>
-    <dd><input type="text" value="<?=$address3 ?>"></dd>
+    <dd><input type="text" name="address3" value="<?=$address3 ?>"></dd>
     <dt>番地、マンション名など</dt>
-    <dd><input type="text" value=""></dd>
+    <dd><input type="text" name="address_detail" value=""></dd>
 </dl>
-<button type="submit">送信</button>
+<button type="submit" name="send">送信</button>
 </form>
-<script>
-    function address(){
-        alert("address");
-    }
-</script>
 </body>
 </html>
