@@ -1,5 +1,10 @@
 <?php
 
+$zipcode = "";
+$address1 = "";
+$address2 = "";
+$address3 = "";
+
 if(isset($_POST['zip'])){
     $zipcode = $_POST['zipcode'];
     $url = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=".$zipcode;
@@ -12,14 +17,10 @@ if(isset($_POST['zip'])){
 }
 
 if(isset($_POST['send'])){
-    echo '<hr>';
-    echo '<p>送信データ</p>';
-    echo '<p>',$_POST['zipcode'],'</p>';
-    echo '<p>',$_POST['address1'],'</p>';
-    echo '<p>',$_POST['address2'],'</p>';
-    echo '<p>',$_POST['address3'],'</p>';
-    echo '<p>',$_POST['address_detail'],'</p>';
-    echo '<hr>';
+//    POSTでリダイレクト⇒POSTデータの引継ぎができる
+//    header関数の第3引数で、コード307を指定
+//    参考URL：https://qumeru.com/magazine/129
+    header('Location: address_out.php', true, 307);
 }
 ?>
 <!DOCTYPE html>
@@ -27,10 +28,11 @@ if(isset($_POST['send'])){
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
+    <title>住所</title>
 </head>
 <body>
-<h2>住所検索</h2>
-<title>住所</title>
+<h2>住所新規登録</h2>
+<h3>PHPのみver</h3>
 <form action="" method="POST">
 <dl>
     <dt>郵便番号</dt>

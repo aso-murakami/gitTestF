@@ -1,2 +1,6 @@
 # gitTestF
-村上Git練習用
+
+アドレス検索サンプル
+
+https://aso-murakami.mond.jp/php2F/sample/
+
