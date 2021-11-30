@@ -1,3 +1,6 @@
+// https://techacademy.jp/magazine/19615
+// これで良さそう。書き換えてみる予定
+
 var btn = document.getElementById('btn');
 
 //「検索ボタン」クリック時にJSONデータ読み込み
