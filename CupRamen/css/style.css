@@ -1,0 +1,51 @@
+body{
+    /*background-image: url("http://aso2001362.parasite.jp/%E9%96%8B%E7%99%BA%EF%BC%88%E8%87%AA%E5%88%86%E7%94%A8%EF%BC%89/CupRamen/img/background.jpg");*/
+    background-image: url("../img/background.jpg");
+}
+h1{
+    width: auto;
+    height: auto;
+    text-align: center;
+    background-color: yellow;
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    font-size: large;
+    text-align-last: center;
+    padding: 5px 5px;
+    margin: 10px;
+}
+
+.container{
+    text-align: center;
+}
+
+h3 {
+    color: deepskyblue;
+}
+.login{
+    text-align: center;
+}
+.image{
+    width: 130px;
+    height: 130px;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+}
+
+.form{
+    text-align: center;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+    margin: 30px 20%;
+    background-color: white;
+    padding: 100px;
+}
+.login{
+    margin: 20px;
+}
+
+table{
+    margin: auto;
+    text-align: center;
+}

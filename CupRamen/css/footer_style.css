@@ -1,0 +1,45 @@
+/*メニューをページ下部に固定*/
+#footer{
+    background-color: aqua;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    font-size: 0;
+    opacity: 0.9;
+    z-index: 99;
+}
+
+/*メニューを横並びにする*/
+#footer ul{
+    display: flex;
+    list-style: none;
+    padding:0;
+    margin:0;
+    width:100%;
+}
+
+#footer li{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding:0;
+    margin:0;
+    font-size: 25px;
+}
+
+ボタンを調整
+#footer li a{
+
+    color: #fff;
+    text-align: center;
+    display:block;
+    width: 100%;
+    padding:20px;
+}
+/*レスポンシブデザイン（スマホ用）*/
+@media (min-width: 768px) {
+    .for-sp{
+        display:none;
+    }
+}
