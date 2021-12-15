@@ -11,9 +11,18 @@ if(isset($_POST['zip'])){
     $json = file_get_contents($url);
 
     $data = json_decode($json,true);
-    $address1 = $data['results'][0]['address1'];
-    $address2 = $data['results'][0]['address2'];
-    $address3 = $data['results'][0]['address3'];
+
+    if(is_null($data['results'])){
+        echo "エラーです";
+        $zipcode = "";
+        $address1 = "";
+        $address2 = "";
+        $address3 = "";
+    }else{
+        $address1 = $data['results'][0]['address1'];
+        $address2 = $data['results'][0]['address2'];
+        $address3 = $data['results'][0]['address3'];
+    }
 }
 
 if(isset($_POST['send'])){
